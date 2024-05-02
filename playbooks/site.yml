@@ -1,5 +1,7 @@
 ---
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
  - hosts: all
  - import_playbook: ../static-assignments/common-del.yml  
 
@@ -7,9 +9,13 @@
 #  import_playbook: ../static-assignments/common-del.yml
    
 =======
+>>>>>>> 127a849d01983cd4880aeea692291037e044bac8
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
  
 - hosts: uat-webservers
 - import_playbook: ../static-assignments/uat-webservers.yml
+<<<<<<< HEAD
+=======
 >>>>>>> 135b236809c2d733b76d455468f5af2d5800eb57
+>>>>>>> 127a849d01983cd4880aeea692291037e044bac8
