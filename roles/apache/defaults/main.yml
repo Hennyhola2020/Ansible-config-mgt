@@ -22,7 +22,7 @@ apache_vhosts:
   - servername: "local.dev"
     documentroot: "/var/www/html"
 
-    enable_apache_lb: false
+
 
 apache_allow_override: "All"
 apache_options: "-Indexes +FollowSymLinks"
@@ -63,4 +63,5 @@ apache_restart_state: restarted
 # if you want to upgrade or switch versions using a new repo.
 apache_packages_state: present
 
-
+enable_apache_lb: false
+load_balancer_is_required: false

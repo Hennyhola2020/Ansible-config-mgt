@@ -5,11 +5,23 @@
 
 #- hosts: uat-webserver  
 #  import_playbook: ../static-assignments/common-del.yml
+
+
    
-=======
+---
 - hosts: all
-- import_playbook: ../static-assignments/common.yml
- 
-- hosts: uat-webservers
-- import_playbook: ../static-assignments/uat-webservers.yml
->>>>>>> 135b236809c2d733b76d455468f5af2d5800eb57
+- name: Include dynamic variables
+  tasks:
+  import_playbooks: ../static_assignments/common.yml
+  include: ../dynamic_assignments/env-vars.yml
+  tags:
+    - always
+
+-  hosts: webservers
+- name: Webserver assignment
+  import_playbook: ../static_assignments/uat_webservers.yml
+
+       - name: Loadbalancers assignment
+       hosts: lb
+         - import_playbook: ../static-assignments/loadbalancers.yml
+        when: load_balancer_is_required 
