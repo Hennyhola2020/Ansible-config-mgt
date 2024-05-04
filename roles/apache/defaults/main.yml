@@ -63,4 +63,4 @@ apache_restart_state: restarted
 # if you want to upgrade or switch versions using a new repo.
 apache_packages_state: present
 
-
+enable_apache_lb: false
