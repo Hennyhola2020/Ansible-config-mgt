@@ -22,6 +22,8 @@ apache_vhosts:
   - servername: "local.dev"
     documentroot: "/var/www/html"
 
+    enable_apache_lb: false
+
 apache_allow_override: "All"
 apache_options: "-Indexes +FollowSymLinks"
 
@@ -60,3 +62,5 @@ apache_restart_state: restarted
 # Apache package state; use `present` to make sure it's installed, or `latest`
 # if you want to upgrade or switch versions using a new repo.
 apache_packages_state: present
+
+
