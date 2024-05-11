@@ -33,20 +33,19 @@
 # Vhost configuration.
 - import_tasks: vhosts.yml
 
-  name: set webservers host name in /etc/hosts
+
+- name: set webservers host name in /etc/hosts
   become: yes
   blockinfile:
     path: /etc/hosts
-    block: I
-      {{ item.ip }} {{ item.name}}
+    block: "{{ item.ip }} {{ item.name }}"
   loop:
-    -{ name: web1, ip: 172.31.32.29 }
-    -{ name: web2, ip: 172.31.42.58 }
-
+    - { name: "web1", ip: "172.31.32.29" }
+    - { name: "web2", ip: "172.31.46.23" }
 
 # Nginx setup.
 - name: Copy nginx configuration in place.
-  become:true
+  # become:true
   template:
     src: "{{ nginx_conf_template }}"
     dest: "{{ nginx_conf_file_path }}"
@@ -57,7 +56,7 @@
     - reload nginx
 
 - name: Ensure nginx service is running as configured.
-  become:true
+  # become:true
   service:
     name: nginx
     state: "{{ nginx_service_state }}"
